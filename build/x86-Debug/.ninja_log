@@ -1,0 +1,18 @@
+# ninja log v5
+1	879	569108321	CMakeFiles/2DPlatformer.dir/src/Map.cpp.obj	a77fdcaf956ef90
+0	903	569111418	CMakeFiles/2DPlatformer.dir/src/MainLoop.cpp.obj	1cd7eb90f2fdcc65
+903	1628	569111418	2DPlatformer.exe	5232576018352592
+1	869	569111435	CMakeFiles/2DPlatformer.dir/src/MainLoop.cpp.obj	1cd7eb90f2fdcc65
+869	1582	569111435	2DPlatformer.exe	5232576018352592
+0	731	569111445	CMakeFiles/2DPlatformer.dir/src/MainLoop.cpp.obj	1cd7eb90f2fdcc65
+731	1508	569111446	2DPlatformer.exe	5232576018352592
+0	813	569112432	CMakeFiles/2DPlatformer.dir/src/MainLoop.cpp.obj	1cd7eb90f2fdcc65
+813	1627	569112433	2DPlatformer.exe	5232576018352592
+0	897	569112580	CMakeFiles/2DPlatformer.dir/src/MainLoop.cpp.obj	1cd7eb90f2fdcc65
+897	1712	569112581	2DPlatformer.exe	5232576018352592
+1	959	569112607	CMakeFiles/2DPlatformer.dir/src/MainLoop.cpp.obj	1cd7eb90f2fdcc65
+959	1689	569112607	2DPlatformer.exe	5232576018352592
+1	905	569112623	CMakeFiles/2DPlatformer.dir/src/MainLoop.cpp.obj	1cd7eb90f2fdcc65
+905	1617	569112623	2DPlatformer.exe	5232576018352592
+1	746	569112634	CMakeFiles/2DPlatformer.dir/src/MainLoop.cpp.obj	1cd7eb90f2fdcc65
+746	1484	569112634	2DPlatformer.exe	5232576018352592
