@@ -203,6 +203,9 @@ VCPKG_TARGET_TRIPLET:STRING=x86-windows
 //Path to a program.
 _VCPKG_CL:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.16.27023/bin/Hostx86/x86/cl.exe
 
+//The directory containing a CMake configuration file for unofficial-box2d.
+unofficial-box2d_DIR:PATH=C:/vcpkg/installed/x86-windows/share/unofficial-box2d
+
 
 ########################
 # INTERNAL cache entries

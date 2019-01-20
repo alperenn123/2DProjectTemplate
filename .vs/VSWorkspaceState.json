@@ -2,13 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\headers",
+    "\\headers\\animation",
+    "\\headers\\renderer",
+    "\\headers\\types",
     "\\src",
     "\\textures",
     "\\textures\\map_background",
-    "\\textures\\player",
-    "\\textures\\player\\KNIGHT",
-    "\\textures\\player\\KNIGHT\\_DIE"
+    "\\textures\\player"
   ],
-  "SelectedNode": "\\textures\\player\\KNIGHT\\_DIE\\_DIE_000.png",
+  "SelectedNode": "\\src\\Animation.cpp",
   "PreviewInSolutionExplorer": false
 }
