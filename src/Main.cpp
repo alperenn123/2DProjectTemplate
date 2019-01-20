@@ -42,9 +42,9 @@ int main()
 			}
 		}
 		Animation::Update(elapsed, &animation);
-		window.clear(sf::Color::Black);
 		window.draw(animation.m_object);
 		window.display();
+		window.clear(sf::Color::Black);
 	}
 
 

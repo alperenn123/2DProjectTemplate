@@ -85,3 +85,10 @@
 895	1612	569722501	2DPlatformer.exe	658e242e92e310d5
 1	921	569722518	CMakeFiles/2DPlatformer.dir/src/Main.cpp.obj	d5b61522662deff0
 921	1661	569722519	2DPlatformer.exe	658e242e92e310d5
+1	156	569723336	build.ninja	1d6519ecf7aa815c
+1	1156	569723337	CMakeFiles/2DPlatformer.dir/src/Animation.cpp.obj	11b2a6587f17a70f
+1156	1905	569723337	2DPlatformer.exe	658e242e92e310d5
+1	888	569723395	CMakeFiles/2DPlatformer.dir/src/Main.cpp.obj	d5b61522662deff0
+888	1611	569723395	2DPlatformer.exe	658e242e92e310d5
+1	905	569723863	CMakeFiles/2DPlatformer.dir/src/Animation.cpp.obj	11b2a6587f17a70f
+906	1662	569723863	2DPlatformer.exe	658e242e92e310d5

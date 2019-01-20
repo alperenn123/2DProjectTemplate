@@ -8,6 +8,7 @@ namespace Game {
 			if (animation->m_Sprite_Sheet != NULL)
 			{
 				animation->m_object.setTexture(*(animation->m_Sprite_Sheet));
+				animation->m_object.setTextureRect(sf::IntRect(0,0,0,0));
 			}
 			else
 			{
@@ -20,7 +21,6 @@ namespace Game {
 		void AddFrames(Frame* frames, uint8 frame_count, sAnimation* animation)
 		{
 			uint8 index = 0;
-			uint8 addr_step = sizeof(frames);
 			for (index = 0; index < frame_count - 1; index++)
 			{
 				animation->m_frames.push_back(*frames);
