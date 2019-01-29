@@ -1,5 +1,4 @@
 #include <FrameAnim/FrameAnimation.h>
-#include "renderer/Renderer.h"
 
 int main()
 {
