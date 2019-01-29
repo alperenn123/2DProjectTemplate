@@ -1,36 +1,36 @@
-#include "animation/Animation.h"
+#include <FrameAnim/FrameAnimation.h>
 #include "renderer/Renderer.h"
-using namespace Game;
+
 int main()
 {
 	uint16 screen_width	 = 640;
-	uint16 screen_height = 360;
+	uint16 screen_height = 480;
 	char* window_title = "2D GAME";
-	sf::Texture idle_sprite_sheet;
-	idle_sprite_sheet.loadFromFile("..\\..\\textures\\player\\Idle.png");
+	sf::Texture walk_sprite_sheet;
+	walk_sprite_sheet.loadFromFile("..\\..\\textures\\player\\sprite_sheet.png");
 	sf::RenderWindow window(sf::VideoMode(screen_width, screen_height), window_title);
+	window.setFramerateLimit(60);
 	sf::Event event;
-	Animation::sAnimation animation;
+	FrameAnimation* current_anim;
+	FrameAnimation walkingAnimationRight(&walk_sprite_sheet);
+	FrameAnimation walkingAnimationDown(&walk_sprite_sheet);
+	/*run_anim.AddFrame(sf::IntRect(0, 0, 130, 130));
+	run_anim.AddFrame(sf::IntRect(130, 130, 130, 130));
+	run_anim.AddFrame(sf::IntRect(0, 130, 130, 130));
+	run_anim.AddFrame(sf::IntRect(130, 130, 130, 130));*/
+	
+	walkingAnimationDown.AddFrame(sf::IntRect(32, 0, 32, 32));
+	walkingAnimationDown.AddFrame(sf::IntRect(64, 0, 32, 32));
+	walkingAnimationDown.AddFrame(sf::IntRect(32, 0, 32, 32));
+	walkingAnimationDown.AddFrame(sf::IntRect(0, 0, 32, 32));
 
-	Animation::SetSpriteSheet(&idle_sprite_sheet,&animation);
-	Animation::Init(&animation);
-	Animation::Frame idle_frames[11];
-
-	uint8 text_width = 88;
-	uint8 text_height = 128;
-	sf::IntRect l_frame;
-	l_frame.height = text_height;
-	l_frame.width = text_width;
-	l_frame.top = 0;
-	for (uint8 i = 0; i < 11; i++)
-	{
-		idle_frames[i].m_frame_start_time = 0.0f;
-		idle_frames[i].m_frame_duration = 0.1f;
-		l_frame.left = text_width * i;;
-		idle_frames[i].rect = l_frame;
-	}
-	Animation::AddFrames(&idle_frames[0], 11, &animation);
+	walkingAnimationRight.AddFrame(sf::IntRect(32, 64, 32, 32));
+	walkingAnimationRight.AddFrame(sf::IntRect(64, 64, 32, 32));
+	walkingAnimationRight.AddFrame(sf::IntRect(32, 64, 32, 32));
+	walkingAnimationRight.AddFrame(sf::IntRect(0, 64, 32, 32));
+	current_anim = &walkingAnimationDown;
 	sf::Clock clock;
+	sf::Vector2f pos(0, 0);
 	while (window.isOpen())
 	{
 		sf::Time elapsed = clock.restart();
@@ -41,8 +41,17 @@ int main()
 			case sf::Event::Closed: {window.close(); }
 			}
 		}
-		Animation::Update(elapsed, &animation);
-		window.draw(animation.m_object);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		{
+			current_anim = &walkingAnimationRight;
+
+		}
+		else
+		{
+			current_anim = &walkingAnimationDown;
+		}
+		current_anim->Update(elapsed);
+		current_anim->Draw(&window);
 		window.display();
 		window.clear(sf::Color::Black);
 	}

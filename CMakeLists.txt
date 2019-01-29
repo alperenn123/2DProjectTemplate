@@ -5,13 +5,11 @@ project(2DPlatformer)
 include_directories(
   ${PROJECT_SOURCE_DIR}/headers
   ${PROJECT_SOURCE_DIR}/headers/types
-  ${PROJECT_SOURCE_DIR}/headers/animation
-  ${PROJECT_SOURCE_DIR}/headers/renderer
+  ${PROJECT_SOURCE_DIR}/headers/FrameAnim
 )
   set(sourcefiles
       ${PROJECT_SOURCE_DIR}/src/Main.cpp
-      ${PROJECT_SOURCE_DIR}/src/Animation.cpp
-      ${PROJECT_SOURCE_DIR}/src/Renderer.cpp
+      ${PROJECT_SOURCE_DIR}/src/FrameAnimation.cpp
     )
 set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
 set(THREADS_PREFER_PTHREAD_FLAG TRUE)
