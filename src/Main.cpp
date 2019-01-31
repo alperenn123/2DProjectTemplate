@@ -11,50 +11,61 @@ int main()
 	window.setFramerateLimit(60);
 	sf::Event event;
 	FrameAnimation* current_anim;
-	FrameAnimation walkingAnimationRight(&walk_sprite_sheet);
-	FrameAnimation walkingAnimationDown(&walk_sprite_sheet);
+	FrameAnimation walkingAnimationLeft(walk_sprite_sheet);
+	FrameAnimation walkingAnimationDown(walk_sprite_sheet);
 	/*run_anim.AddFrame(sf::IntRect(0, 0, 130, 130));
 	run_anim.AddFrame(sf::IntRect(130, 130, 130, 130));
 	run_anim.AddFrame(sf::IntRect(0, 130, 130, 130));
 	run_anim.AddFrame(sf::IntRect(130, 130, 130, 130));*/
-	
+	sf::Vector2i frame_size(32,32);
+	sf::Time duration = sf::seconds(0.5f);
+	walkingAnimationDown.setDuration(duration);
+
+	walkingAnimationDown.AddFrame(sf::IntRect(0, 0, 32, 32));
 	walkingAnimationDown.AddFrame(sf::IntRect(32, 0, 32, 32));
 	walkingAnimationDown.AddFrame(sf::IntRect(64, 0, 32, 32));
-	walkingAnimationDown.AddFrame(sf::IntRect(32, 0, 32, 32));
-	walkingAnimationDown.AddFrame(sf::IntRect(0, 0, 32, 32));
 
-	walkingAnimationRight.AddFrame(sf::IntRect(32, 64, 32, 32));
-	walkingAnimationRight.AddFrame(sf::IntRect(64, 64, 32, 32));
-	walkingAnimationRight.AddFrame(sf::IntRect(32, 64, 32, 32));
-	walkingAnimationRight.AddFrame(sf::IntRect(0, 64, 32, 32));
-	current_anim = &walkingAnimationDown;
+	walkingAnimationLeft.setDuration(duration);
+
+	walkingAnimationLeft.AddFrame(sf::IntRect(0,32,32,32));
+	walkingAnimationLeft.AddFrame(sf::IntRect(32,32,32,32));
+	walkingAnimationLeft.AddFrame(sf::IntRect(64,32,32,32));
+	
 	sf::Clock clock;
+	sf::Time timePerFrame = sf::seconds(1.0f / 60.0f);
+	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	sf::Vector2f pos(0, 0);
+	uint8 input_flag = 0;
 	while (window.isOpen())
 	{
-		sf::Time elapsed = clock.restart();
+		sf::Time deltaTime = clock.restart();
+		timeSinceLastUpdate += deltaTime;
 		while (window.pollEvent(event))
 		{
 			switch (event.type)
 			{
-			case sf::Event::Closed: {window.close(); }
+				case sf::Event::Closed: {window.close(); }
 			}
 		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		window.clear(sf::Color::Black);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-			current_anim = &walkingAnimationRight;
-
+			walkingAnimationLeft.update(timeSinceLastUpdate, true);
+			window.draw(walkingAnimationLeft);
 		}
 		else
 		{
-			current_anim = &walkingAnimationDown;
-		}
-		current_anim->Update(elapsed);
-		current_anim->Draw(&window);
-		window.display();
-		window.clear(sf::Color::Black);
-	}
+			walkingAnimationDown.update(timeSinceLastUpdate, true);
+			window.draw(walkingAnimationDown);
 
+		}
+
+
+
+		window.display();
+		timeSinceLastUpdate = sf::Time::Zero;
+	}
+	
 
 	return 0;
 }
